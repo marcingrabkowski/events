@@ -70,50 +70,70 @@ import {
 import EventsFormHelper from '@/components/Events/Forms/EventsFormHelper'
 import axios from 'axios'
 
-    export default {
-       
-     data() {
-      return {
-        items: [],
-        submited: false
-      }
-    },
-      setup() {
-      const event = reactive({
-        name: '',
-        date: '',
-        description: '',
-        picture: '',
-        type: '',
-        phone_number: '',
-        email: '',
-        place: ''
-      })
+export default {
 
-      const rules = computed(() => {
+    data() {
         return {
-          name: { required },
-          date: { required },
-          description: { required },
-          picture: { required },
-          type: { required },
-          phone_number: { required },
-          email: { required, email },
-          place: { required }
+            items: [],
+            submited: false
         }
-      })
-      
-      const v$ = useValidate(rules, event)
-
-      return {event, v$}
     },
-    methods : {
-                  submitForm() {
+    setup() {
+        const event = reactive({
+            name: '',
+            date: '',
+            description: '',
+            picture: '',
+            type: '',
+            phone_number: '',
+            email: '',
+            place: ''
+        })
+
+        const rules = computed(() => {
+            return {
+                name: {
+                    required
+                },
+                date: {
+                    required
+                },
+                description: {
+                    required
+                },
+                picture: {
+                    required
+                },
+                type: {
+                    required
+                },
+                phone_number: {
+                    required
+                },
+                email: {
+                    required,
+                    email
+                },
+                place: {
+                    required
+                }
+            }
+        })
+
+        const v$ = useValidate(rules, event)
+
+        return {
+            event,
+            v$
+        }
+    },
+    methods: {
+        submitForm() {
             this.submited = true;
             console.log(this.v$);
             if (!this.v$.$invalid) {
 
-              //to powinno byc dopiero w then, ale nie mam endpointa
+                //to powinno byc dopiero w then, ale nie mam endpointa
                 this.$store.commit('addEvent', {
                     title: this.event.name,
                     date: this.event.date,
@@ -129,15 +149,15 @@ import axios from 'axios'
 
                 axios.post('/contact', this.event)
                     .then((res) => {
-                     
+
                     })
                     .catch((error) => {
-                   
+
                     }).finally(() => {
-                    
+
                     });
 
-                    this.clearForm();
+                this.clearForm();
             }
         },
 
@@ -154,6 +174,6 @@ import axios from 'axios'
             this.submited = 0;
         }
     }
- 
-    }
+
+}
 </script>
