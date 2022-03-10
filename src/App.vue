@@ -14,7 +14,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <RouterLink to="/" class="nav-link">Home</RouterLink>
-        <RouterLink to="/about" class="nav-link">Events</RouterLink>
+        <RouterLink to="/events" class="nav-link">Events</RouterLink>
         <RouterLink to="/event/create" class="nav-link">Create event</RouterLink>
       </div>
     </div>

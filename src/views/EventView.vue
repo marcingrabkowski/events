@@ -1,12 +1,11 @@
 <template>
-  <div class="row">
-    <div class="col-lg-12">
-      <h1>{{ item.title }}</h1>
-      <p>{{ item.fullDescription }}</p>
-  </div>
-</div>
+   <div class="row">
+      <div class="col-lg-12">
+         <h1>{{ item.title }}</h1>
+         <p>{{ item.fullDescription }}</p>
+      </div>
+   </div>
 </template>
-
 
 <script>
     export default {

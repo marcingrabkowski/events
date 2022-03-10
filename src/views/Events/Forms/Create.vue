@@ -1,5 +1,6 @@
 <template>
 <div class="row">
+   <div class="col-lg-3"> </div>
    <div class="col-lg-6">
       <div class="card">
         <div class="card-header">
@@ -94,7 +95,7 @@
           picture: { required },
           type: { required },
           phone_number: { required },
-          email: { required },
+          email: { required, email },
           place: { required }
         }
       })
@@ -119,10 +120,10 @@
       },
   		submitForm() {
         this.submited = true;
-         console.log(this.v$);
+         
         if(!this.v$.$invalid) {
             this.$store.commit('addEvent', {title: this.event.name, date: this.event.date, body: this.event.description, image: this.event.picture ?? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxFp-IkltO0_DxCbqBV0LIhcXRwDzkPfxtkQ&usqp=CAU', type: '', phone_number: '', email: '', place: ''})
-            alert('git dodane');
+            alert('form submitted, but endpoint doesnt exists :(');
             axios.post('/contact', this.event)
               .then((res) => {
   
@@ -134,7 +135,7 @@
               });
   		}
       },
-            clearForm() {
+      clearForm() {
         this.event.name = ''
         this.event.date = ''
         this.event.description = ''
