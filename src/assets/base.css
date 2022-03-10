@@ -1,0 +1,15 @@
+.bodyContainer {
+  padding-top:30px;
+}
+
+.errorMessage {
+  color: red;
+}
+
+.event {
+  margin-top:10px;
+}
+
+.event-image {
+  max-height: 230px;
+}

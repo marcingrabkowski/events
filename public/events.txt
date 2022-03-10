@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "IEM",
+    "body": "event 1",
+    "image": "https://cdn.benchmark.pl/uploads/article/74554/MODERNICON/ed0d8e5a4dfc7ff91c43561c62c29472033b7d32.jpg"
+  },
+  {
+    "id": 2,
+    "title": "PGA",
+    "body": "event 2",
+    "image": "https://d-art.ppstatic.pl/kadry/k/r/1/1e/4f/5dab4753ee916_o_medium.jpg"
+  },
+    {
+    "id": 3,
+    "title": "CES",
+    "body": "CES is owned and produced by the Consumer Technology Association, which provides the ultimate platform for technology leaders to connect, collaborate, and propel consumer technology forward.",
+    "image": "https://img.global.news.samsung.com/pl/wp-content/uploads/2022/01/CES-2022-Special-Page_Image_1000.jpg"
+  }
+]

@@ -1,0 +1,8 @@
+
+  {
+    "id": 1,
+    "title": "IEM 2022",
+    "body": "event 1",
+    "fullDescription": "Intel® Extreme Masters is the longest running global pro gaming tour in the world. Started in 2006 by ESL, the competition features the world's best gamers in Counter-Strike: Global Offensive, StarCraft® II and other esport titles. With IEM having over a decade of history, it is widely considered one of the most prestigious and traditional events in the world.",
+    "image": "https://cdn.benchmark.pl/uploads/article/74554/MODERNICON/ed0d8e5a4dfc7ff91c43561c62c29472033b7d32.jpg"
+  }
