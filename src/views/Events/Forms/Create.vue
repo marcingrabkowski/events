@@ -66,7 +66,7 @@
 
 <script>
   import EventItem from '@/components/Events/List/EventItem.vue'
-  import EventCreateForm from '@/components/Events/EventCreateForm.vue'
+  import EventsFormHelper from '@/components/Events/Forms/EventsFormHelper'
   import useValidate from "@vuelidate/core";
   import { required, email } from '@vuelidate/validators'
   import { reactive, computed} from 'vue'
@@ -115,14 +115,21 @@
       }
     },
     methods: {
-      addEvents() {
-
-      },
   		submitForm() {
         this.submited = true;
          
         if(!this.v$.$invalid) {
-            this.$store.commit('addEvent', {title: this.event.name, date: this.event.date, body: this.event.description, image: this.event.picture ?? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxFp-IkltO0_DxCbqBV0LIhcXRwDzkPfxtkQ&usqp=CAU', type: '', phone_number: '', email: '', place: ''})
+             this.$store.commit('addEvent', {
+               title: this.event.name,
+               date: this.event.date,
+               body: this.event.description,
+               image: EventsFormHelper.imageExists(this.event.picture) ? this.event.picture : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxFp-IkltO0_DxCbqBV0LIhcXRwDzkPfxtkQ&usqp=CAU',
+               type: '',
+               phone_number: '',
+               email: '',
+               place: ''
+            })           
+         
             alert('form submitted, but endpoint doesnt exists :(');
             axios.post('/contact', this.event)
               .then((res) => {
@@ -135,6 +142,21 @@
               });
   		}
       },
+      async getData() {
+         if (this.$store.getters.lockedEventsLoad) {
+               try {
+                  const response = await this.$http.get(
+                     "http://127.0.0.1:3000/events.txt"
+                  );
+                  this.$store.commit('lockEventsLoad');
+
+                  this.items = response.data;
+                  this.$store.commit('setEvents', response.data)
+               } catch (error) {
+                  console.log(error);
+               }
+            }
+        },
       clearForm() {
         this.event.name = ''
         this.event.date = ''
@@ -147,6 +169,9 @@
 
         this.submited = 0;
       }
+    },
+    created() {
+      this.getData();
     },
   }
 </script>

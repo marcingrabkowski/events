@@ -151,7 +151,6 @@ export default {
     methods: {
         async getData() {
             if (this.$store.getters.lockedEventsLoad) {
-                console.log(!this.$store.getters.lockedEventsLoad)
                 try {
                     const response = await this.$http.get(
                         "http://127.0.0.1:3000/events.txt"
@@ -163,7 +162,6 @@ export default {
                 } catch (error) {
                     console.log(error);
                 }
-
             }
         },
         submitForm() {
