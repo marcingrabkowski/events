@@ -18,6 +18,7 @@
       <div class="mb-3">
          <label for="text" class="form-label">Picture (url)</label>
          <input type="text" class="form-control" id="image" name="picture" v-model="event.picture" placeholder="e.g. www.picture.com/doge.png">
+         <span v-if="submited && v$.picture.$invalid" class="errorMessage"> {{ v$.picture.$silentErrors[0].$message }} </span>
       </div>
       <div class="mb-3">
          <label for="type" class="form-label">Event type</label>
