@@ -30,9 +30,6 @@ export default {
         EventItem,
         EventCreateForm
     },
-    mounted() {
-
-    },
     data() {
         return {
             items: [],

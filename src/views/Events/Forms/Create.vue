@@ -24,10 +24,6 @@
 
   export default {
 
-    setup() {
-
-    },
-
     components: {
       EventCreateForm
     },
@@ -36,12 +32,6 @@
         items: [],
         submited: false
       }
-    },
-    methods: {
-
-    },
-    created() {
-
     },
   }
 </script>
